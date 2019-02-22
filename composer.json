@@ -1,5 +1,5 @@
 {
-    "name": "bueckl/UserDesfinedGridFieldFields",
+    "name": "bueckl/UserDefinedGridFieldFields",
     "description": "Allows the user to define those fields which should be shown on a GridField",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "GridField"],
