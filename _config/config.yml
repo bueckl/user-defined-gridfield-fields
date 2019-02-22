@@ -1,0 +1,12 @@
+---
+Name: custom_summary_fields
+After:
+  - 'framework/*'
+  - 'cms/*'
+---
+DataObject:
+  extensions:
+    - CustomSummaryDataObjectExtension
+SiteConfig:
+  extensions:
+    - CustomSummarySiteConfigExtension
