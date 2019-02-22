@@ -1,13 +1,13 @@
 {
-    "name": "bueckl/UserDefinedGridFieldFields",
+    "name": "bueckl/user-defined-gridfield-fields",
     "description": "Allows the user to define those fields which should be shown on a GridField",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "GridField"],
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Nivanka Fonseka",
-            "email": "nivanka@silverstripers.com"
+            "name": "Jochen Gülden",
+            "email": "jochen@guelden.org"
         }],
     "require": {
         "silverstripe/framework"    : "*"
