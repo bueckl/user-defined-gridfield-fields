@@ -20,9 +20,17 @@ class CustomSummaryFieldHolder extends DataObject
         'ClassType'
     );
 
+
+    public function getTitle() {
+        return $this->ClassType;
+    }
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName('CustomSummaryFields');
+
+
 
         $objArr = SS_ClassLoader::instance()->getManifest()->getDescendantsOf('dataobject');
         $combinedArr = array_combine($objArr, $objArr);
@@ -30,6 +38,21 @@ class CustomSummaryFieldHolder extends DataObject
         $fields->addFieldsToTab('Root.Main', array(
             DropdownField::create('ClassType', 'Data Object')->setSource($combinedArr),
         ));
+
+
+        $gridField = GridField::create(
+            'CustomSummaryFields',
+            'Custom Summary Fields',
+            $this->CustomSummaryFields(),
+            new GridFieldConfig_RecordEditor(50));
+
+        $fields->addFieldToTab('Root.CustomSummary',
+            $gridField
+        );
+
+        $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+
+
 
         return $fields;
     }

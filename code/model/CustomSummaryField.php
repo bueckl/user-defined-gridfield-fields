@@ -11,7 +11,8 @@ class CustomSummaryField extends DataObject
     private static $db = array(
         'OriginalField' => 'Varchar(255)',
         'LabelField' => 'Varchar(255)',
-        'SelectedType' => "Enum('DB and Relations,Functions','DB and Relations')"
+        'SelectedType' => "Enum('DB and Relations,Functions','DB and Relations')",
+        'Sort' => 'Int'
     );
 
     private static $has_one = array(
@@ -19,8 +20,15 @@ class CustomSummaryField extends DataObject
     );
 
     private static $summary_fields = array(
-        'OriginalField'
+        'OriginalField',
+        'LabelField'
     );
+
+    public function getTitle() {
+        return $this->OriginalField;
+    }
+
+    private static $default_sort = 'Sort';
 
     public function validate()
     {
@@ -78,9 +86,9 @@ class CustomSummaryField extends DataObject
                     $arrFields = array_merge($arrFields, $newFieldsArr);
                 }
                 $fields->addFieldsToTab('Root.Main', array(
-                    DropdownField::create('OriginalField', 'Field want to display')
+                    DropdownField::create('OriginalField', 'Field')
                         ->setSource($arrFields),
-                    TextField::create('LabelField', 'Label name wants to display'),
+                    TextField::create('LabelField', 'Custom Label'),
                 ));
             }
         } else {

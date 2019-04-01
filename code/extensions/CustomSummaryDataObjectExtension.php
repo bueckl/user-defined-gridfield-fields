@@ -9,6 +9,8 @@
 class CustomSummaryDataObjectExtension extends DataExtension
 {
 
+
+
     public function updateSummaryFields(&$fields)
     {
         $currFields = Config::inst()->get($this->owner->class, 'summary_fields');

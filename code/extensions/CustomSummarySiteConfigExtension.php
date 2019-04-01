@@ -11,13 +11,17 @@ class CustomSummarySiteConfigExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
+
+
         $fields->addFieldToTab('Root.CustomSummary',
-            GridField::create(
+            $gf = GridField::create(
                 'CustomSummary',
                 'Custom Summary Fields For Data Object',
                 CustomSummaryFieldHolder::get(),
-                new GridFieldConfig_RecordEditor(5))
+                new GridFieldConfig_RecordEditor(50))
         );
+
+
     }
 
 }
